@@ -29,7 +29,7 @@ while country_count < td_data_all__count:
     country.append(td_data_all[country_count])
     country_count = country_count + 4
 
-currency_count = 1
+currency_count = 2
 while currency_count < td_data_all__count:
     currency_code.append(td_data_all[currency_count])
     currency_count = currency_count + 4

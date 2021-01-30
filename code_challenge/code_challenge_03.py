@@ -1,6 +1,12 @@
 import os
 import requests
 
+#data length
+const = None 
+def set_data_length(n)
+    const = n
+
+
 def is_valid_url ():
     print('Welcome to IsItDown.py!')
     print('Please write a URLs you want to check.(seperated by comma)')
