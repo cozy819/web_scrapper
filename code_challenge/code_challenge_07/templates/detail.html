@@ -1,39 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>Nomad News|{{title}}</title>
+  <title>Nomad News|{{comment_head.c_points}}</title>
   <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
 </head>
 <body>
   <header>
-    <h1>Nomad News</h1>  
+    <h1>{{comment_head.c_title}}</h1>
     <div>
-      Order by:
-      <a href="/?order_by=popular">Popular</a>
-      <a href="/?order_by=new">New</a>
+      <span>{{comment_head.c_points}} points</span>
+      <span>|</span>
+      <span>By {{comment_head.c_author}}</span>
+      <span>|</span>
+      <a href="{{comment_head.c_url}}">{{comment_head.c_url}}</a>
     </div>
   </header>
   <main>
-    {% for article in articles %}
+    {% for comment in comments %}
       <div>
-        <div>
-          <a href="/{{article.a_object_id}}">
-            {{article.a_title}}
-          </a>
-          <span>(</span>
-          <a href="{{article.a_url}}">
-            {{article.a_url}}
-          </a>
-          <span>)</span>
-        </div>
-        <div>
-          <span>{{article.a_points}} points</span>
-          <span>By: {{article.a_author}}</span>
-          <span>{{article.a_num_comments}} comments</span>
-        </div>
+        <strong>{{comment.author}}</strong>
+        <p>{{comment.text}}</p>
       </div>
-      </br />
+      <hr />
     {% endfor %}
   </main>
 </body>
