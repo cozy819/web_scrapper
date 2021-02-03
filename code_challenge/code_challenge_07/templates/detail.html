@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nomad News|{{title}}</title>
+  <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
+</head>
+<body>
+  <header>
+    <h1>Nomad News</h1>  
+    <div>
+      Order by:
+      <a href="/?order_by=popular">Popular</a>
+      <a href="/?order_by=new">New</a>
+    </div>
+  </header>
+  <main>
+    {% for article in articles %}
+      <div>
+        <div>
+          <a href="/{{article.a_object_id}}">
+            {{article.a_title}}
+          </a>
+          <span>(</span>
+          <a href="{{article.a_url}}">
+            {{article.a_url}}
+          </a>
+          <span>)</span>
+        </div>
+        <div>
+          <span>{{article.a_points}} points</span>
+          <span>By: {{article.a_author}}</span>
+          <span>{{article.a_num_comments}} comments</span>
+        </div>
+      </div>
+      </br />
+    {% endfor %}
+  </main>
+</body>
+</html>
