@@ -1,12 +1,58 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+  <title>Reddit Reader</title>
   <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
 </head>
-
 <body>
-  
+  <header>
+    <h1>Reddit Reader</h1>
+    <h3>A service to aggregate all your favourite subreddits</h3>
+  </header>
+  <main>
+    <form action="/read" method="GET">
+      <h6>Select the subreddits you're interested in:</h6>
+      <ul>
+        <li>
+          <input type="checkbox" id="javascript" name="check" value="javascript">
+          <label for="javascript">r/javascript</label>
+        </li>
+        <li>
+          <input type="checkbox" id="reactjs" name="check" value="reactjs">
+          <label for="reactjs">r/reactjs</label>
+        </li>
+        <li>
+          <input type="checkbox" id="reactnative" name="check" value="reactnative">
+          <label for="reactnative">r/reactnative</label>
+        </li>
+        <li>
+          <input type="checkbox" id="programming" name="check" value="programming">
+          <label for="programming">r/programming</label>
+        </li>
+        <li>
+          <input type="checkbox" id="css" name="check" value="css">
+          <label for="css">r/css</label>
+        </li>
+        <li>
+          <input type="checkbox" id="golang" name="check" value="golang">
+          <label for="golang">r/golang</label>
+        </li>
+        <li>
+          <input type="checkbox" id="flutter" name="check" value="flutter">
+          <label for="flutter">r/flutter</label>
+        </li>
+        <li>
+          <input type="checkbox" id="rust" name="check" value="rust">
+          <label for="rust">r/rust</label>
+        </li>
+        <li>
+          <input type="checkbox" id="django" name="check" value="django">
+          <label for="django">r/django</label>
+        </li>
+      </ul>
+      <button type="submit">Aggregate</button>
+    </form>
+  </main>
 </body>
 
 </html>

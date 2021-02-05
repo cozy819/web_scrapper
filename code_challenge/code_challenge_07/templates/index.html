@@ -9,7 +9,9 @@
   <header>
     <h1>Nomad News</h1>  
     <div>
-      {{header_title}}
+      Order by:
+      <a href="/?order_by=popular">Popular</a>
+      <a href="/?order_by=new">New</a>
     </div>
   </header>
   <main>
@@ -31,6 +33,7 @@
           <span>{{article.a_num_comments}} comments</span>
         </div>
       </div>
+      </br />
     {% endfor %}
   </main>
 </body>

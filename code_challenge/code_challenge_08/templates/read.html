@@ -2,11 +2,39 @@
 <html>
 
 <head>
-  <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
+	<title>Reddit Reader</title>
+	<link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet">
+	</link>
 </head>
 
 <body>
-  
+	<header>
+		<h1>
+			<a href="/home">
+				Reddit Reader
+			</a>
+		</h1>
+		<h3>Reading:
+			{% for selection in selections %}
+				r/{{selection}}
+			{% endfor %}
+		</h3>
+	</header>
+	<main>
+		{% for d in datas %}
+			<div>
+				<h3>
+					<a href="{{d.link}}">
+						{{d.title}}
+					</a>
+				</h3>
+				<h4>
+					{{d.count}} . upvotes {{d.theme}}
+				</h4>
+				<hr />
+			</div>
+		{% endfor %}
+	</main>
 </body>
 
 </html>
