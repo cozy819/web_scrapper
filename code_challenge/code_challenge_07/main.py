@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for, request
 from scrapper import get_json, get_repl
 
 base_url = "http://hn.algolia.com/api/v1"
@@ -15,25 +15,20 @@ popular = f"{base_url}/search?tags=story"
 app = Flask("Day Nine")
 
 
-@app.route("/?order_by=popular")
-def order_by_popular():
-    articles = []
-    articles = get_json(popular)
-    return render_template("index.html", articles=articles, title="Popular")
-
-
-@app.route("/?order_by=new")
-def order_by_new():
-    articles = []
-    articles = get_json(new)
-    return render_template("index.html", articles=articles, title="New")
-
-
 @app.route("/")
 def home():
     articles = []
-    articles = get_json(popular)
-    return render_template("index.html", articles=articles, title="home")
+    order_by = request.args.get('order_by')
+    if order_by == 'popular':
+        articles = get_json(popular)
+        return render_template("index.html", articles=articles, title='Popular')
+    elif order_by == 'new':
+        articles = get_json(new)
+        return render_template("index.html", articles=articles, title='New')
+    else:
+        order_by = 'popular'
+        articles = get_json(popular)
+        return render_template("index.html", articles=articles, title='Popular')
 
 
 def make_detail_url(id):

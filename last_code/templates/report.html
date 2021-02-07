@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
+    <title>Job Search</title>
+    <style></style>
+  </head>
+  <body>
+    <header>
+        <h1>Remote Jobs</h1>
+        <h3>{{resultsNumber}} {{searchingBy}} jobs found.</h3>
+        <a href="/export?word={{searchingBy}}">Export to CSV</a>
+        <br>
+        <a href="/"><h6>Go back</h6></a>
+    </header>
+    <main>
+      {% for job in jobs %}
+        <div>
+          <h3>{{job.title}}}</h3>
+          <h4>{{job.company}}</h4>
+          
+          {% if 'Closed' in job.link  %}
+            <a href="#">{{job.link}}</a>
+          {% elif 'email-protection' in job.link %}
+            <a href="#">{{job.link}}</a>  
+          {% else %}
+            <a href="{{job.link}}">Apply</a>
+          {% endif %}  
+
+        </div>
+      {% endfor %}  
+    </main>
+</body>
+</html>

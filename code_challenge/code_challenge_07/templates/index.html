@@ -8,11 +8,20 @@
 <body>
   <header>
     <h1>Nomad News</h1>  
-    <div>
-      Order by:
-      <a href="/?order_by=popular">Popular</a>
-      <a href="/?order_by=new">New</a>
-    </div>
+    {% if title == 'Popular' %}  
+      <div>
+        Order by:
+        <strong>Popular</strong>
+        <a href="/?order_by=new">New</a>
+      </div>
+    {% endif %}  
+    {% if title == 'New' %}  
+      <div>
+        Order by:
+        <a href="/?order_by=popular">Popular</a>
+        <strong>New</strong>
+      </div>
+    {% endif %}  
   </header>
   <main>
     {% for article in articles %}
